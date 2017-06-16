@@ -24,9 +24,9 @@ class PCA9685:
         prs = 25000000 / (4096 * self.freq) - 1
 
         # write prescaler value / restart PWM output
-        self.bus.write_byte_data(addr, 0x00, 0x10)
-        self.bus.write_byte_data(addr, 0xFE, int(prs))
-        self.bus.write_byte_data(addr, 0x00, 0x01)
+        self.bus.write_byte_data(self.addr, 0x00, 0x10)
+        self.bus.write_byte_data(self.addr, 0xFE, int(prs))
+        self.bus.write_byte_data(self.addr, 0x00, 0x01)
 
     def setPulseWidth(self, ch, microseconds):
         if(ch < 15 and ch > 0):
