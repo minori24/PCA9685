@@ -14,8 +14,8 @@ class PCA9685:
 
     def addDevice(self, I2CAddr):
         self.addr = I2CAddr
-        self.bus.write_byte_data(addr, 0x00, 0x01)
-        self.bus.write_byte_data(addr, 0x01, 0x04)
+        self.bus.write_byte_data(self.addr, 0x00, 0x01)
+        self.bus.write_byte_data(self.addr, 0x01, 0x04)
 
     def setPWMFreq(self, PWMfreq):
         # set prescaler
