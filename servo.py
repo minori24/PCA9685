@@ -55,7 +55,11 @@ if __name__ == '__main__':
     servo = ServoController()
 
     while True:
-        servo.moveAbsoluteX(random.randint(1000, 2000))
-        servo.moveAbsoluteY(random.randint(1000, 2000))
-        servo.moveAbsoluteMouth(random.randint(1000, 2000))
-        time.sleep(0.5)
+        rx = random.randint(1000, 2000)
+        ry = random.randint(1000, 2000)
+        rm = random.randint(1000, 2000)
+        print("x:" + rx + " y:" + ry + " mouth:" + rm)
+        servo.moveAbsoluteX(rx)
+        servo.moveAbsoluteY(ry)
+        servo.moveAbsoluteMouth(rm)
+        time.sleep(1.0)
