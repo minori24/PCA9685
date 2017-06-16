@@ -17,7 +17,7 @@ class ServoController:
 
     def __init__(self):
         bus = smbus.SMBus(1)
-        driver = pca9685.PCA9685(I2CBus=1, I2CAddr=0x40, freq=50)
+        self.driver = pca9685.PCA9685(I2CBus=1, I2CAddr=0x40, freq=50)
 
     # deltaX, deltaY: distances(px) from target to camera center
     def moveXY(self, deltaX, deltaY):
@@ -36,17 +36,17 @@ class ServoController:
         if (y < self.SERVO_MIN):
             y = self.SERVO_MIN
 
-        driver.setPulseWidth(0, x)
-        driver.setPulseWidth(1, y)
+        self.driver.setPulseWidth(0, x)
+        self.driver.setPulseWidth(1, y)
 
     def moveAbsoluteX(self, position):
-        driver.setPulseWidth(0, position)
+        self.driver.setPulseWidth(0, position)
 
     def moveAbsoluteY(self, position):
-        driver.setPulseWidth(1, position)
+        self.driver.setPulseWidth(1, position)
 
     def moveAbsoluteMouth(self, position):
-        driver.setPulseWidth(2, position)
+        self.driver.setPulseWidth(2, position)
 
     def moveMouth(self, openclose):
         pass
