@@ -16,7 +16,6 @@ class ServoController:
     servo_y = SERVO_CENTER
 
     def __init__(self):
-        bus = smbus.SMBus(1)
         self.driver = pca9685.PCA9685(I2CBus=1, I2CAddr=0x40, freq=47)
 
     # deltaX, deltaY: distances(px) from target to camera center
