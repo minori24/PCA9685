@@ -23,6 +23,7 @@ class PCA9685:
         self.freq = PWMfreq
         prs = 25000000 / (4096 * self.freq) - 1
 
+        print("freq:" + str(self.freq) + " prs:" + str(prs))
         # write prescaler value / restart PWM output
         self.bus.write_byte_data(self.addr, 0x00, 0x10)
         self.bus.write_byte_data(self.addr, 0xFE, int(prs))
@@ -37,6 +38,8 @@ class PCA9685:
 
             on = 4096 - microseconds / self.freq * 4096
             off = 0
+
+            print("on:" + str(on))
 
             self.bus.write_byte_data(self.addr, reg_on_l, int(on) & 0xFF)
             self.bus.write_byte_data(self.addr, reg_on_h, (int(on) & 0x0F00) >> 8)
