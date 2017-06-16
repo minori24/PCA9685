@@ -40,6 +40,7 @@ class ServoController:
         driver.setPulseWidth(1, y)
 
     def moveMouth(self, openclose):
+        pass
 
 if __name__ == '__main__':
     servo = ServoController(1, 0x40, 50)
