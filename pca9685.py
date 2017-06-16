@@ -5,11 +5,10 @@ import smbus
 class PCA9685:
 
     addr = 0x40
-    bus = None
     freq = 20000
 
     def __init__(self, I2CBus, I2CAddr, freq):
-        self.bus = I2CBus
+        bus = smbus.SMBus(I2CBus)
         self.addDevice(I2CAddr)
         self.setPWMFreq(freq)
 
@@ -25,9 +24,9 @@ class PCA9685:
         prs = 25000000 / (4096 * self.freq) - 1
 
         # write prescaler value / restart PWM output
-        bus.write_byte_data(addr, 0x00, 0x10)
-        bus.write_byte_data(addr, 0xFE, int(prs))
-        bus.write_byte_data(addr, 0x00, 0x01)
+        self.bus.write_byte_data(addr, 0x00, 0x10)
+        self.bus.write_byte_data(addr, 0xFE, int(prs))
+        self.bus.write_byte_data(addr, 0x00, 0x01)
 
     def setPulseWidth(self, ch, microseconds):
         if(ch < 15 and ch > 0):
