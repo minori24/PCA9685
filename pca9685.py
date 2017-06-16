@@ -8,7 +8,7 @@ class PCA9685:
     freq = 20000
 
     def __init__(self, I2CBus, I2CAddr, freq):
-        bus = smbus.SMBus(I2CBus)
+        self.bus = smbus.SMBus(I2CBus)
         self.addDevice(I2CAddr)
         self.setPWMFreq(freq)
 
