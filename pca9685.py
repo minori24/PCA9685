@@ -38,7 +38,7 @@ class PCA9685:
             on = 4096 - microseconds / self.freq * 4096
             off = 0
 
-            self.bus.write_byte_data(addr, reg_on_l, int(on) & 0xFF)
-            self.bus.write_byte_data(addr, reg_on_h, (int(on) & 0x0F00) >> 8)
-            self.bus.write_byte_data(addr, reg_off_l, int(off) & 0xFF)
-            self.bus.write_byte_data(addr, reg_off_h, (int(off) & 0x0F00) >> 8)
+            self.bus.write_byte_data(self.addr, reg_on_l, int(on) & 0xFF)
+            self.bus.write_byte_data(self.addr, reg_on_h, (int(on) & 0x0F00) >> 8)
+            self.bus.write_byte_data(self.addr, reg_off_l, int(off) & 0xFF)
+            self.bus.write_byte_data(self.addr, reg_off_h, (int(off) & 0x0F00) >> 8)
