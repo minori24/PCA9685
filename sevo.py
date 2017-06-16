@@ -3,9 +3,6 @@
 import pca9685
 import smbus
 
-class Servo:
-
-
 class ServoController:
 
     SERVO_MAX = 2000
@@ -18,10 +15,7 @@ class ServoController:
 
     def __init__(self):
         bus = smbus.SMBus(1)
-        driver = pca9685.PCA9685(bus)
-        driver.addDevice(0x40)
-        driver.setPWMFreq(20)
-        driver.setPulseWidth(self.SERVO_CENTER)    
+        driver = pca9685.PCA9685(I2CBus=1, I2CAddr=0x40, freq=50)
 
     # deltaX, deltaY: distances(px) from target to camera center
     def moveXY(self, deltaX, deltaY):

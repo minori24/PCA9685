@@ -8,13 +8,18 @@ class PCA9685:
     bus = None
     freq = 20000
     
-    def __init__(self, I2CBus):
+    def __init__(self, I2CBus, I2CAddr, freq):
         self.bus = I2CBus
+        self.addDevice(I2CAddr)
+        self.setPWMFreq(freq)
 
-    def addDevice(I2CAddr):
+    def addDevice(self, I2CAddr):
         self.addr = I2CAddr
         bus.write_byte_data(addr, 0x00, 0x01)
         bus.write_byte_data(addr, 0x01, 0x04)
+    
+    def addChannel(self, channel)
+        
 
     def setPWMFreq(self, PWMfreq):
         # set prescaler
