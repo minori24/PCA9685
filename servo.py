@@ -58,7 +58,7 @@ if __name__ == '__main__':
         rx = random.randint(1000, 2000)
         ry = random.randint(1000, 2000)
         rm = random.randint(1000, 2000)
-        print("x:" + rx + " y:" + ry + " mouth:" + rm)
+        print("x:" + str(rx) + " y:" + str(ry) + " mouth:" + str(rm))
         servo.moveAbsoluteX(rx)
         servo.moveAbsoluteY(ry)
         servo.moveAbsoluteMouth(rm)
