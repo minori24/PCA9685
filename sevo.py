@@ -2,6 +2,8 @@
 
 import pca9685
 import smbus
+import random
+import time
 
 class ServoController:
 
@@ -40,4 +42,11 @@ class ServoController:
     def moveMouth(self, openclose):
 
 if __name__ == '__main__':
-    
+    servo = ServoController(1, 0x40, 50)
+
+    while True:
+        servo.setPulseWidth(0, random.randint(1000, 2000))
+        servo.setPulseWidth(1, random.randint(1000, 2000))
+        servo.setPulseWidth(2, random.randint(1000, 2000))
+        time.sleep(0.5)
+        

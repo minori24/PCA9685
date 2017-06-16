@@ -18,25 +18,28 @@ class PCA9685:
         bus.write_byte_data(addr, 0x00, 0x01)
         bus.write_byte_data(addr, 0x01, 0x04)
 
-    def addChannel(self, channel):
-        
-
     def setPWMFreq(self, PWMfreq):
         # set prescaler
         # clock source: internal 25MHz
         self.freq = PWMfreq
         prs = 25000000 / (4096 * self.freq) - 1
 
-        # write prescaler / restart PWM output
+        # write prescaler value / restart PWM output
         bus.write_byte_data(addr, 0x00, 0x10)
         bus.write_byte_data(addr, 0xFE, int(prs))
         bus.write_byte_data(addr, 0x00, 0x01)
 
     def setPulseWidth(self, ch, microseconds):
-        on = 4096 - microseconds / self.freq * 4096
-        off = 0
+        if(ch < 15 and ch > 0):
+            reg_on_h = 7 + 4 * ch
+            reg_on_l = 6 + 4 * ch
+            reg_off_h = 9 + 4 * ch
+            reg_off_l = 8 + 4 * ch
 
-        bus.write_byte_data(addr, 0x06, int(on) & 0xFF)
-        bus.write_byte_data(addr, 0x07, (int(on) & 0x0F00) >> 8)
-        bus.write_byte_data(addr, 0x08, int(off) & 0xFF)
-        bus.write_byte_data(addr, 0x09, (int(off) & 0x0F00) >> 8)
+            on = 4096 - microseconds / self.freq * 4096
+            off = 0
+
+            bus.write_byte_data(addr, reg_on_l, int(on) & 0xFF)
+            bus.write_byte_data(addr, reg_on_h, (int(on) & 0x0F00) >> 8)
+            bus.write_byte_data(addr, reg_off_l, int(off) & 0xFF)
+            bus.write_byte_data(addr, reg_off_h, (int(off) & 0x0F00) >> 8)
