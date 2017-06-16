@@ -39,14 +39,23 @@ class ServoController:
         driver.setPulseWidth(0, x)
         driver.setPulseWidth(1, y)
 
+    def moveAbsoluteX(self, position):
+        driver.setPulseWidth(0, position)
+
+    def moveAbsoluteY(self, position):
+        driver.setPulseWidth(1, position)
+
+    def moveAbsoluteMouth(self, position):
+        driver.setPulseWidth(2, position)
+
     def moveMouth(self, openclose):
+        pass
 
 if __name__ == '__main__':
-    servo = ServoController(1, 0x40, 50)
+    servo = ServoController()
 
     while True:
-        servo.setPulseWidth(0, random.randint(1000, 2000))
-        servo.setPulseWidth(1, random.randint(1000, 2000))
-        servo.setPulseWidth(2, random.randint(1000, 2000))
+        servo.moveAbsoluteX(random.randint(1000, 2000))
+        servo.moveAbsoluteY(random.randint(1000, 2000))
+        servo.moveAbsoluteMouth(random.randint(1000, 2000))
         time.sleep(0.5)
-        
