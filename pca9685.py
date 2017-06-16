@@ -14,8 +14,8 @@ class PCA9685:
 
     def addDevice(self, I2CAddr):
         self.addr = I2CAddr
-        bus.write_byte_data(addr, 0x00, 0x01)
-        bus.write_byte_data(addr, 0x01, 0x04)
+        self.bus.write_byte_data(addr, 0x00, 0x01)
+        self.bus.write_byte_data(addr, 0x01, 0x04)
 
     def setPWMFreq(self, PWMfreq):
         # set prescaler
@@ -38,7 +38,7 @@ class PCA9685:
             on = 4096 - microseconds / self.freq * 4096
             off = 0
 
-            bus.write_byte_data(addr, reg_on_l, int(on) & 0xFF)
-            bus.write_byte_data(addr, reg_on_h, (int(on) & 0x0F00) >> 8)
-            bus.write_byte_data(addr, reg_off_l, int(off) & 0xFF)
-            bus.write_byte_data(addr, reg_off_h, (int(off) & 0x0F00) >> 8)
+            self.bus.write_byte_data(addr, reg_on_l, int(on) & 0xFF)
+            self.bus.write_byte_data(addr, reg_on_h, (int(on) & 0x0F00) >> 8)
+            self.bus.write_byte_data(addr, reg_off_l, int(off) & 0xFF)
+            self.bus.write_byte_data(addr, reg_off_h, (int(off) & 0x0F00) >> 8)
