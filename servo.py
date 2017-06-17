@@ -71,6 +71,7 @@ if __name__ == '__main__':
     #     time.sleep(0.02)
 
     i = 1500
+    j = 1500
     while True:
         x = random.randint(1200, 1800)
         y = random.randint(1200, 1800)
