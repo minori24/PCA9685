@@ -78,24 +78,24 @@ if __name__ == '__main__':
 
         while i < x:
             servo.moveAbsoluteX(i)
-            i += 20
-            time.sleep(0.1)
+            i += 10
+            time.sleep(0.05)
             pass
 
         while i > x:
             servo.moveAbsoluteX(i)
-            i -= 20
-            time.sleep(0.1)
+            i -= 10
+            time.sleep(0.05)
             pass
 
         while j < y:
             servo.moveAbsoluteY(j)
-            j += 20
-            time.sleep(0.1)
+            j += 10
+            time.sleep(0.05)
             pass
 
         while j > y:
             servo.moveAbsoluteY(j)
-            j -= 20
-            time.sleep(0.1)
+            j -= 10
+            time.sleep(0.05)
             pass
