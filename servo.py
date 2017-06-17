@@ -39,7 +39,7 @@ class ServoController:
         self.driver.setPulseWidth(1, y)
 
     def moveAbsoluteX(self, position):
-        self.driver.setPulseWidth(0, position)
+        self.driver.setPulseWidth(3, position)
 
     def moveAbsoluteY(self, position):
         self.driver.setPulseWidth(1, position)
@@ -84,5 +84,17 @@ if __name__ == '__main__':
         while i > x:
             servo.moveAbsoluteX(i)
             i -= 20
+            time.sleep(0.02)
+            pass
+
+        while j < y:
+            servo.moveAbsoluteX(j)
+            j += 20
+            time.sleep(0.02)
+            pass
+
+        while j > y:
+            servo.moveAbsoluteX(j)
+            j -= 20
             time.sleep(0.02)
             pass
