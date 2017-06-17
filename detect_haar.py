@@ -4,14 +4,14 @@ import cv2
 
 class Detect_HAAR:
 
-    
+
     def __init__(self):
         self.cap = cv2.VideoCapture(0)
         cv2.namedWindow("detect", cv2.WINDOW_NORMAL)
 
         #HAAR分類器の顔検出用の特徴量
-        #cascade_path = "/usr/local/opt/opencv/share/OpenCV/haarcascades/haarcascade_frontalface_default.xml"
-        self.cascade_path = "C:\opencv\data\haarcascades\haarcascade_frontalface_alt.xml"
+        cascade_path = "/usr/local/opt/opencv/share/OpenCV/haarcascades/haarcascade_frontalface_default.xml"
+        #self.cascade_path = "C:\opencv\data\haarcascades\haarcascade_frontalface_alt.xml"
         #cascade_path = "/usr/local/opt/opencv/share/OpenCV/haarcascades/haarcascade_frontalface_alt2.xml"
         #cascade_path = "/usr/local/opt/opencv/share/OpenCV/haarcascades/haarcascade_frontalface_alt_tree.xml"
 
