@@ -58,14 +58,14 @@ if __name__ == '__main__':
         if(i < 2000):
             servo.moveAbsoluteX(i)
             servo.moveAbsoluteY(i)
-            i += 20
+            i += 10
 
         if(i >= 2000 and i < 3000):
             servo.moveAbsoluteX(4000 - i)
             servo.moveAbsoluteY(4000 - i)
-            i += 20
+            i += 10
 
         if(i >= 3000):
             i = 1000
 
-        time.sleep(0.05)
+        time.sleep(0.04)
