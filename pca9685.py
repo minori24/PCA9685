@@ -36,7 +36,7 @@ class PCA9685:
             reg_off_h = 9 + 4 * ch
             reg_off_l = 8 + 4 * ch
 
-            on = 4096 - microseconds / self.freq * 4096
+            on = 4096 - microseconds * self.freq / 1000000 * 4096
             off = 0
 
             print("on:" + str(on))
