@@ -65,7 +65,7 @@ if __name__ == '__main__':
             servo.moveAbsoluteY(4000 - i)
             i += 1
 
-        if(i >= 3000)
+        if(i >= 3000):
             i = 1000
 
         time.sleep(0.1)
