@@ -52,7 +52,7 @@ class ServoController:
 
 if __name__ == '__main__':
     servo = ServoController()
-    # i = 1000
+    i = 1000
 
     while True:
         if(i < 2000):
