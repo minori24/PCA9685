@@ -52,20 +52,37 @@ class ServoController:
 
 if __name__ == '__main__':
     servo = ServoController()
-    i = 1000
+    # i = 1000
+    #
+    # while True:
+    #     if(i < 2000):
+    #         servo.moveAbsoluteX(i)
+    #         servo.moveAbsoluteY(i)
+    #         i += 20
+    #
+    #     if(i >= 2000 and i < 3000):
+    #         servo.moveAbsoluteX(4000 - i)
+    #         servo.moveAbsoluteY(4000 - i)
+    #         i += 20
+    #
+    #     if(i >= 3000):
+    #         i = 1000
+    #
+    #     time.sleep(0.02)
 
+    i = 1500
     while True:
-        if(i < 2000):
+        x = random.randint(1200, 1800)
+        y = random.randint(1200, 1800)
+
+        while i < x:
             servo.moveAbsoluteX(i)
-            servo.moveAbsoluteY(i)
             i += 20
+            time.sleep(0.02)
+            pass
 
-        if(i >= 2000 and i < 3000):
-            servo.moveAbsoluteX(4000 - i)
-            servo.moveAbsoluteY(4000 - i)
-            i += 20
-
-        if(i >= 3000):
-            i = 1000
-
-        time.sleep(0.02)
+        while i > x:
+            servo.moveAbsoluteX(i)
+            i -= 20
+            time.sleep(0.02)
+            pass
