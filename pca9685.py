@@ -5,7 +5,7 @@ import smbus
 class PCA9685:
 
     addr = 0x40
-    freq = 20000
+    freq = 50
 
     def __init__(self, I2CBus, I2CAddr, freq):
         self.bus = smbus.SMBus(I2CBus)
