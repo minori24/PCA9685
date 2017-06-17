@@ -68,4 +68,4 @@ if __name__ == '__main__':
         if(i >= 3000):
             i = 1000
 
-        time.sleep(0.04)
+        time.sleep(0.02)
